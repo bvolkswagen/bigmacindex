@@ -2,9 +2,9 @@
 -------------
 Before you run any of these scripts make sure you have:
 
-(a) An internet connection.  
-(b) Downloaded and (compiled) installed bc.  
-(c) The neccesary dose of humor.  
+(a) an internet connection.  
+(b) downloaded and (compiled) installed bc.  
+(c) the neccesary dose of humor.  
 
 This script only works on certain flavors of linux.
 
