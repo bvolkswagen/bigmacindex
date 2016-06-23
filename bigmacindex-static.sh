@@ -11,37 +11,37 @@ echo NOTE: The big mac index is recalculated every hour.
 echo NOTE: The XVC price is calculated based of the latest price on bittrex.
 echo ""
 
-#Make the user aware that the big mac index is recalculated every hour.
+#make the user aware that the big mac index is recalculated every hour
 read -rsp $'Tap any key to continue.\n' -n1 key
 
-#Make bigmacindex directory.
+#make bigmacindex directory
 mkdir -p bigmacindex
 
-#Change directory.
+#change directory
 cd bigmacindex
 
-#Download the latest data on the big mac index.
+#download the latest data on the big mac index
 echo -en '\n'
 echo "Downloading price list into text files for editing:"
 echo "---------------------------------------------------"
 curl http://bitcoinppi.com/v1.1/spot.csv > spot.csv
 curl https://bittrex.com/api/v1.1/public/getticker?market=btc-xvc > ticker.csv
 
-#Manipulate the data for calculation of the big mac index.
+#manipulate the data for calculation of the big mac index
 head -n+2 spot.csv | tail -n+2 | cut -c21-29 > spot.price
 cut -c63-72 ticker.csv > ticker.price
 
-#Create variables for price calculation.
+#create variables for price calculation
 spot=$(cat spot.price)
 ticker=$(cat ticker.price)
 
-#Multiply the two variables and show output.
+#multiply the two variables and show output
 bigmacs=$(echo "$spot * $ticker" | bc)
 
-#Manually enter the total ammount of XVC.
+#manually enter the total ammount of XVC
 xvc= #XVC AMOUNT GOES HERE
 
-#Multiply by total amount of XVC.
+#multiply by total amount of XVC
 echo "$xvc * $bigmacs" | bc > total.csv
 cut -c1-8 total.csv > total.price
 total=$(cat total.price)
