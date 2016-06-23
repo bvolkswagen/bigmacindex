@@ -8,4 +8,4 @@ Before you run any of these scripts make sure you have:
 
 This script only works on certain flavors of linux.
 
-All credits go to https://bitcoinppi.com and https://bittrex.com for providing the realtime data.
+All credits go to http://bitcoinppi.com and https://bittrex.com for providing the realtime data.
